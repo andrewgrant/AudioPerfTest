@@ -23,7 +23,10 @@ public:
     int32 GPUBurnTimeInMS;
     
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
-    bool bEnabled;
+    int32 NumBurns;
+    
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    int32 MaxBurns;
     
 protected:
 	// Called when the game starts

@@ -46,16 +46,16 @@ void UTimeSinkComponent::TickComponent(float DeltaTime, ELevelTick TickType, FAc
 
 	// ...
     
-    if (bEnabled)
+    if (NumBurns > 0)
     {
         ENQUEUE_RENDER_COMMAND(BurnGPUTimeCmd)(
               [this](FRHICommandListImmediate& RHICmdList)
               {
-                  BurnTime(GPUBurnTimeInMS);
+                  BurnTime(GPUBurnTimeInMS * NumBurns);
               }
         );
         
-        BurnTime(CPUBurnTimeInMS);
+        BurnTime(CPUBurnTimeInMS * NumBurns);
     }
 }
 
